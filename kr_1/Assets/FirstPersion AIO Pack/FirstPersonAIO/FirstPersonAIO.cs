@@ -98,6 +98,7 @@ public class FirstPersonAIO : MonoBehaviour {
     float smoothRef;
     Image StaminaMeter;
     Image StaminaMeterBG;
+    public Image crossHairImage;
     public Sprite Crosshair;
     public Vector3 targetAngles;
     private Vector3 followAngles;
@@ -282,11 +283,11 @@ public class FirstPersonAIO : MonoBehaviour {
             canvas.transform.position = Vector3.zero;
 
             if(autoCrosshair){
-                Image crossHair = new GameObject("Crosshair").AddComponent<Image>();
-                crossHair.sprite = Crosshair;
-                crossHair.rectTransform.sizeDelta = new Vector2(25,25);
-                crossHair.transform.SetParent(canvas.transform);
-                crossHair.transform.position = Vector3.zero;
+                crossHairImage = new GameObject("Crosshair").AddComponent<Image>();
+                crossHairImage.sprite = Crosshair;
+                crossHairImage.rectTransform.sizeDelta = new Vector2(25,25);
+                crossHairImage.transform.SetParent(canvas.transform);
+                crossHairImage.transform.position = Vector3.zero;
             }
 
             if(drawStaminaMeter){

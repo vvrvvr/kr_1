@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<ObjectState> buildings = new List<ObjectState>();
     [SerializeField] private GameObject[] environment;
     [SerializeField] private Material[] skyboxes;
-
-
+    
     void Start()
     {
         
+
     }
 
     
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
             ChangeWorldState();
         }
     }
-    private void ChangeWorldState()
+    public void ChangeWorldState()
     {
         worldState++;
         foreach(ObjectState obj in buildings)

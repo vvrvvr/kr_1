@@ -12,11 +12,13 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Transform camTransform;
     private FirstPersonAIO player;
     //[SerializeField] private Sprite eye;
+    [SerializeField] private GameManager gameManager;
 
     private void Start()
     {
         player = GetComponent<FirstPersonAIO>();
-    }
+       
+}
 
 
     void Update()
@@ -26,17 +28,23 @@ public class PlayerInteraction : MonoBehaviour
 
         if(Physics.Raycast(camTransform.position, fwd, out hit, rayLength, layerMaskInteract.value))
         {
-            Debug.Log("interactable");
+            //Debug.Log("interactable");
             if(hit.collider.CompareTag("flower"))
             {
                 raycastedObj = hit.collider.gameObject;
-                player.Crosshair = hand;
-                Debug.Log("flower hit");
+                player.crossHairImage.sprite = hand;
+                //Debug.Log("flower hit");
+                if(Input.GetMouseButtonDown(0))
+                {
+                    Destroy(raycastedObj);
+                    raycastedObj = null;
+                    gameManager.ChangeWorldState();
+                }
             }
         }
         else
         {
-            player.Crosshair = crosshair;
+            player.crossHairImage.sprite = crosshair;
         }
 
 
