@@ -38,8 +38,21 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     Destroy(raycastedObj);
                     raycastedObj = null;
-                    player.ControllerPause();
+                    //player.ControllerPause();
                     gameManager.ChangeWorldState();
+                }
+            }
+            if (hit.collider.CompareTag("note"))
+            {
+                raycastedObj = hit.collider.gameObject;
+                player.crossHairImage.sprite = hand;
+                //Debug.Log("note hit");
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Destroy(raycastedObj);
+                    raycastedObj = null;
+                    gameManager.ShowNote();
+                    
                 }
             }
         }
