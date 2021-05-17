@@ -38,6 +38,7 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     Destroy(raycastedObj);
                     raycastedObj = null;
+                    player.ControllerPause();
                     gameManager.ChangeWorldState();
                 }
             }

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - flower
+  - note
   layers:
   - Default
   - TransparentFX
